@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processamento de Salários</title>
+</head>
+<body>
+    <main>
+        <h1>Processamento de Salários</h1>
+        <form action="salvar.php" method="get" onsubmit="return processar()">
+            <p> Quantos funcionários serão cadastrados?</p> <br>
+            <input type="number" name="funcionarios" id="funcionarios" min="1" max="1000" value="5">
+            <input type="submit" value="Iniciar">
+            <p id="resultado">O resultado aparecerá aqui...</p>
+        </form>
+        <script>
+            function processar(){
+                let resultado = document.getElementById("resultado")
+                let funcionarios = Number(document.getElementById("funcionarios").value)
+
+                let numero=0
+                let soma=0
+                let maior=0
+                let menor=0
+
+                let c=1 
+                while (c<=funcionarios){
+                    numero= Number(prompt(`Digite o valor do salário da ${c} pessoa`))
+                    soma += numero
+                    
+                    if (c == 1) {
+                        maior = numero
+                        menor = numero
+                    }
+                    else {
+                        if (numero < menor) {
+                            menor = numero
+                        } else if (numero > maior) {
+                            maior = numero
+                        }
+                    }
+                    c++
+                }
+            
+                let media = soma/funcionarios
+
+                resultado.innerHTML = `A empresa gastará com todos os salários ${soma} reais. 
+                <br>A média salarial é de ${media} reais.
+                <br>O maior salário pago é de ${maior} reais. 
+                <br>O menor salário pago é de ${menor} reais.` 
+
+                return false
+            }
+        </script>
+
+    </main>
+</body>
+</html>
