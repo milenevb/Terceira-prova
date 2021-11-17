@@ -31,16 +31,13 @@
             let porc=0
         
             if (parcelas<=4){ 
-             porc=0
-               if(parcelas<=12){
-                 porc=25
-               }
-               if(parcelas<=24){
-                   porc=60
-               }
-               else {
-                   porc=80
-               }
+                porc=0
+            } else if(parcelas<=12){
+                porc=25
+            } else if(parcelas<=24){
+                porc=60
+            } else {
+                porc=80
             }
 
             let aum = preco * porc / 100
