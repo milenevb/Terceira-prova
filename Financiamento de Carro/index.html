@@ -20,12 +20,14 @@
         <p id="resultado"> O resultado de seu financiamento aparecerá aqui...</p>
     </main>
     <script>
+        let res = document.getElementById("resultado")
+        
+        let preco = Number(document.getElementById("preco").value)
+        let modelo = document.getElementById("modelo").value
+        let parcelas = Number(document.getElementById("parcelas").value)
+        
         function financiar(){
-            let res = document.getElementById("resultado")
-            let preco = Number(document.getElementById("preco").value)
-            let modelo = document.getElementById("modelo").value
-            let parcelas = Number(document.getElementById("parcelas").value)
-            
+                
             let porc=0
         
             if (parcelas<=4){ 
