@@ -14,6 +14,7 @@
             <input type="number" name="funcionarios" id="funcionarios" min="1" max="1000" value="5">
             <input type="submit" value="Iniciar">
             <p id="resultado">O resultado aparecerá aqui...</p>
+            <link rel="stylesheet" href="style.css">
         </form>
         <script>
             function processar(){
@@ -46,10 +47,10 @@
             
                 let media = soma/funcionarios
 
-                resultado.innerHTML = `A empresa gastará com todos os salários ${soma} reais. 
-                <br>A média salarial é de ${media} reais.
-                <br>O maior salário pago é de ${maior} reais. 
-                <br>O menor salário pago é de ${menor} reais.` 
+                resultado.innerHTML = `A empresa gastará com todos os salários R$${soma.toFixed(2)}. 
+                <br>A média salarial é de R$${media.toFixed(2)}.
+                <br>O maior salário pago é de R$${maior.toFixed(2)}. 
+                <br>O menor salário pago é de R$${menor.toFixed(2)}.` 
 
                 return false
             }
