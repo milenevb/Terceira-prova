@@ -45,8 +45,8 @@
             let total = preco * aum
             let mensal = total / parcelas
 
-            res.innerHTML = `O valor do ${modelo} financiado é de R$${total}, resultando assim com seus juros de ${porc}%, R$${mensal} mensal`
-
+            res.innerHTML = `O valor do ${modelo} financiado é de R$${total.toFixed(2)}, resultando assim com seus juros de ${porc}%, R$${mensal.toFixed(2)} mensal`
+            
             return false
         }
     </script>
