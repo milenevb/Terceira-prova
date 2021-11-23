@@ -18,17 +18,17 @@
            Quantidade de Parcelas: <input type="number" name="parcelas" id="parcelas" min="1" max="36" value="16"> <br>
            <input type="submit" value="Financie já!">
         </form>
-        <p id="resultado"> O resultado de seu financiamento aparecerá aqui...</p>
+        <p id="resultado"> O resultado de seu aparecerá aqui...</p>
     </main>
     <script>
         let res = document.getElementById("resultado")
         
-        let preco = Number(document.getElementById("preco").value)
-        let modelo = document.getElementById("modelo").value
-        let parcelas = Number(document.getElementById("parcelas").value)
-        
         function financiar(){
-                
+
+            let preco = Number(document.getElementById("preco").value)
+            let modelo = document.getElementById("modelo").value
+            let parcelas = Number(document.getElementById("parcelas").value)
+
             let porc=0
         
             if (parcelas<=4){ 
@@ -42,11 +42,13 @@
             }
 
             let aum = preco * porc / 100
-            let total = preco * aum
+            let total = preco + aum
             let mensal = total / parcelas
 
-            res.innerHTML = `O valor do ${modelo} financiado é de R$${total.toFixed(2)}, resultando assim com seus juros de ${porc}%, R$${mensal.toFixed(2)} mensal`
+            res.innerHTML = `O veículo ${modelo} custa à vista R$${preco.toFixed(2)}. Parcelando em ${parcelas}x terá ${porc}% de juros.`
             
+            res.innerHTML += `<br> <br> Então, o valor do carro aumentará em R$${aum.toFixed(2)} e passará a custar: <br> <strong> R$${total.toFixed(2)}</strong> parcelado em <strong> ${parcelas}x de R$${mensal.toFixed(2)} </strong>`
+
             return false
         }
     </script>
